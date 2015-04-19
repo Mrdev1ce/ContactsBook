@@ -1,0 +1,74 @@
+﻿@using ContactsBookWeb.Models
+@model List<Contact>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+</head>
+<body>
+<div class="mainContainer">
+    <div class="btnLayer1">
+        <button onclick=" InitializeCreateMenu() " type="button" class="btn btn-primary">Create contact</button>
+        <button onclick=" RedirectToSaveContacts() " type="button" class="btn btn-default">Save list of contacts to XML</button>
+        <button onclick=" DownloadListOfContacts() " type="button" class="btn btn-default">Download list of contacts</button>
+        <div id="searchForm" class="form-group">
+            <input id="inpSearch" type="text" value="" class="form-control" placeholder="Search"/>
+        </div>
+        <button onclick="Search()" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+    </div>
+    @*<div class="btnLayer2">
+        <label class="labelSort">Sort by:</label>
+        <div class="btn-group">
+            <button onclick=" SendSortMethod(1) " type="button" class="btn btn-default">First name</button>
+            <button onclick=" SendSortMethod(2) " type="button" class="btn btn-default">Second name</button>
+            <button onclick=" SendSortMethod(3) " type="button" class="btn btn-default">Year of birth</button>
+        </div>
+    </div>*@
+    
+    <div class="contacts">
+        <div id="contactsList" class="contactsList">
+            <div class="btnLayer2">
+                <label class="labelSort">Sort by:</label>
+                <div class="btn-group">
+                    <button onclick=" SortContacts('FirstName') " type="button" class="btn btn-default">First name</button>
+                    <button onclick=" SortContacts('SecondName') " type="button" class="btn btn-default">Second name</button>
+                    <button onclick=" SortContacts('BirthYear') " type="button" class="btn btn-default">Year of birth</button>
+                </div>
+            </div>
+            <table id="contactsTable" class="table">
+                <caption>Contacts list</caption>
+                <tr><th>First name</th><th>Second name</th><th>Birth year</th><th>Phone number</th></tr>
+                <tbody id="tableBody">
+                    @foreach (var contact in Model)
+                    {
+                        <tr onclick="SendIdToEdit(@contact.Id)">
+                            <td class="hideTd">@contact.Id</td>
+                            <td>@contact.FirstName</td>
+                            <td>@contact.SecondName</td>
+                            <td>@contact.BirthYear</td>
+                            <td>@contact.PhoneNumber</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        <div id="editContact"></div>
+    </div>
+</div>
+    @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/ContactManager.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

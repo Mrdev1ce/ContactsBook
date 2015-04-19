@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditContact</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+<div class="mainContainer">
+    <div class="editContacts">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="input-group">
+                    @using (Html.BeginForm("EditContact", "Home", FormMethod.Post))
+                    {
+                        <h4>Имя</h4>
+                        <input name="firstName" id="firstName" type="text" class="form-control">
+                        <h4>Фамилия</h4>
+                        <input name="secondName" id="secondName" type="text" class="form-control">
+                        <h4>Год рождения</h4>
+                        <input name="birthYear" id="birthYear" type="text" class="form-control">
+                        <h4>Телефон</h4>
+                        <input name="phoneNumber" id="phoneNumber" type="text" class="form-control">
+                        <input type="submit" value="Отправить"/>
+                        @*<button type="button" class="btn btn-success">Отправить</button>*@
+                    }
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div>
+    </div>
+</div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
