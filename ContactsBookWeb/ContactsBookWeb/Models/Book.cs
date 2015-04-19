@@ -33,65 +33,6 @@ namespace ContactsBookWeb.Models
             contact.PhoneNumber = editedContact.PhoneNumber;
         }
 
-        public static List<Contact> SearchContacts(string searchData)
-        {
-            List<Contact> searchResult = new List<Contact>();
-            if (searchData == "")
-            {
-                return Contacts;
-            }
-            if (searchData != null)
-            {
-                searchResult.AddRange(
-                    Contacts.Where(
-                        contact =>
-                            contact.FirstName.Contains(searchData, StringComparison.OrdinalIgnoreCase) || contact.SecondName.Contains(searchData, StringComparison.OrdinalIgnoreCase) ||
-                            contact.PhoneNumber.Contains(searchData, StringComparison.OrdinalIgnoreCase) ));
-                
-            }
-            return searchResult;
-        }
-
-        public static List<Contact> SortSearchResult(string sortBy, List<Contact> searchResult)
-        {
-            switch (sortBy)
-            {
-                case "First name": searchResult.Sort(CompareContactsByFirstName); break;
-                case "Second name": searchResult.Sort(CompareContactsBySecondName); break;
-                case "Year of birth": searchResult.Sort(CompareContactsByBirthYear); break;
-            }
-            return searchResult;
-        }
-
-        public static bool Contains(this string source, string toCheck, StringComparison comparsion)
-        {
-            return source.IndexOf(toCheck, comparsion) >= 0;
-        }
-
-        public static void SortContacts(string sortBy)
-        {
-            switch (sortBy)
-            {
-                case "First name": Contacts.Sort(CompareContactsByFirstName); break;
-                case "Second name": Contacts.Sort(CompareContactsBySecondName); break;
-                case "Year of birth": Contacts.Sort(CompareContactsByBirthYear); break;
-            }
-        }
-
-        private static int CompareContactsByFirstName(Contact first, Contact second)
-        {
-            return String.Compare(first.FirstName, second.FirstName, StringComparison.OrdinalIgnoreCase);
-        }
-        private static int CompareContactsBySecondName(Contact first, Contact second)
-        {
-            return String.Compare(first.SecondName, second.SecondName, StringComparison.OrdinalIgnoreCase);
-        }
-
-        private static int CompareContactsByBirthYear(Contact first, Contact second)
-        {
-            return first.BirthYear.CompareTo(second.BirthYear);
-        }
-
         public static void SaveToXml(string path)
         {
             

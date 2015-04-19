@@ -14,11 +14,6 @@ namespace ContactsBookWeb.Controllers
 
             return View(Book.Contacts);
         }
-
-        public void DeleteContact(int? id)
-        {
-            
-        }
         
     }
 }

@@ -87,9 +87,6 @@ namespace ContactsBookWeb.Models
             return !string.IsNullOrEmpty(value) && value.Length > 1 && value.Length < 30;
         }
 
-        public override string ToString()
-        {
-            return SecondName + " " + FirstName + " " + PhoneNumber + " " + BirthYear;
-        }
+        
     }
 }

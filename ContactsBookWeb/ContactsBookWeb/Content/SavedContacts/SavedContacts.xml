@@ -37,10 +37,10 @@
   </Contact>
   <Contact>
     <Id>5</Id>
-    <FirstName>sdfsdf</FirstName>
-    <SecondName>TextBox</SecondName>
-    <BirthYear>2005</BirthYear>
-    <PhoneNumber>894894891891</PhoneNumber>
+    <FirstName>Иван</FirstName>
+    <SecondName>Иванов</SecondName>
+    <BirthYear>1974</BirthYear>
+    <PhoneNumber>65421654892</PhoneNumber>
   </Contact>
   <Contact>
     <Id>6</Id>
@@ -55,5 +55,12 @@
     <SecondName>TextBox</SecondName>
     <BirthYear>2005</BirthYear>
     <PhoneNumber>894894891891</PhoneNumber>
+  </Contact>
+  <Contact>
+    <Id>8</Id>
+    <FirstName>Николай</FirstName>
+    <SecondName>Император</SecondName>
+    <BirthYear>1935</BirthYear>
+    <PhoneNumber>788945624894</PhoneNumber>
   </Contact>
 </ArrayOfContact>
