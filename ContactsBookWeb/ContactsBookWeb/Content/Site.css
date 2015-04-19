@@ -1,0 +1,93 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    min-width: 1024px;
+}
+
+.mainContainer {
+    width: 85%;
+    margin: 0 auto;
+    display: block;
+}
+.contacts {
+    display: block;
+    margin-top: 20px;
+}
+
+.contactsList {
+    float: left;
+    display: inline-block;
+}
+#editContact {
+    margin-left: 100px;
+    display: inline-block;
+    width: 30%;
+    margin-top: 60px;
+}
+#contactsTable > tbody > tr:hover{
+    background: #C8FAB8;
+}
+#contactsTable {
+    margin-top: 15px;
+}
+#btnSaveChanges {
+    margin-top: 10px;
+}
+#btnDelete {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.field-validation-error {
+    color: #f00;
+}
+ 
+.field-validation-valid {
+    display: none;
+}
+ 
+.input-validation-error {
+    border: 1px solid #f00;
+}
+ 
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+ /*.dataInput {
+     display: block !important;
+ }*/
+.form-group label, input
+{
+   display: block;
+}
+.validation-summary-valid {
+    display: none;
+}
+.labelEditContact {
+    margin-top: 0;
+    text-align: center;
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 4px;
+}
+.labelSort {
+    margin-top: 7px; 
+    margin-right: 5px; 
+}
+
+.btnLayer1 {
+    display: block;
+}
+.btnLayer2 {
+    display: block;
+    margin-top: 10px;
+}
+#searchForm {
+    display: inline-block;
+    margin-left: 10px;
+}
+#inpSearch {
+    display: inline-block;
+}
+.hideTd {
+    display: none;
+}
