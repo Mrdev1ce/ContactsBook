@@ -68,15 +68,15 @@ namespace ContactsBookWeb.Models
             }
         }
         [Required(ErrorMessage = "The field must be set")]
-        [StringLength(30, MinimumLength = 10, ErrorMessage = "The string length must be between 10 and 30 characters")]
-        [RegularExpression(@"[0-9]+" , ErrorMessage = "Incorrect telephone number")]
+        [StringLength(30, MinimumLength = 6, ErrorMessage = "The string length must be between 6 and 30 characters")]
+        [RegularExpression(@"[+][0-9]" , ErrorMessage = "Incorrect telephone number")]
         [Display(Name = "Phone number")]
         public string PhoneNumber
         {
             get { return _phoneNumber; }
             set
             {
-                if (!string.IsNullOrEmpty(value) && value.Length >= 10 && value.Length < 30)
+                if (!string.IsNullOrEmpty(value) && value.Length >= 6 && value.Length < 30)
                 {
                     _phoneNumber = value;
                 }

@@ -1,4 +1,5 @@
-﻿function SendIdToEdit(index) {
+﻿//Sends contact ID to the server (/Contacts/EditContact) and initializes forms to edit contact
+function SendIdToEdit(index) {
     $.ajax({
         url: "/Contacts/EditContact",
         type: "Get",
@@ -11,7 +12,7 @@
 }
 
 
-
+//Sends contact ID to the server (/Contacts/DeleteContact) and redirects to the homepage
 function SendIdToDelete(index) {
     $.ajax({
         url: "/Contacts/DeleteContact",
@@ -22,7 +23,9 @@ function SendIdToDelete(index) {
         }
     });
 }
-
+//Sends model to the server with JSON. 
+//In case of successful editing redirect to the home page
+//In case of error return forms to edit contact with errors
 function SendContactDataToEdit() {
     $.ajax({
         type: "POST",
@@ -46,7 +49,9 @@ function SendContactDataToEdit() {
         contentType: "application/json"
     });
 }
-
+//Sends model to the server with JSON. 
+//In case of successful editing redirect to the home page
+//In case of error return forms to create contact with errors
 function SendContactDataToCreate() {
     $.ajax({
         type: "POST",
@@ -70,7 +75,7 @@ function SendContactDataToCreate() {
         contentType: "application/json"
     });
 }
-
+//Initializes forms to create contact
 function InitializeCreateMenu() {
     $.ajax({
         url: "/Contacts/CreateContact",
