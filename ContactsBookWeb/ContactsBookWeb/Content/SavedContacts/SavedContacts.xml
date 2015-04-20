@@ -63,4 +63,11 @@
     <BirthYear>1935</BirthYear>
     <PhoneNumber>788945624894</PhoneNumber>
   </Contact>
+  <Contact>
+    <Id>9</Id>
+    <FirstName>Имя</FirstName>
+    <SecondName>Контакт</SecondName>
+    <BirthYear>2015</BirthYear>
+    <PhoneNumber>789456132</PhoneNumber>
+  </Contact>
 </ArrayOfContact>

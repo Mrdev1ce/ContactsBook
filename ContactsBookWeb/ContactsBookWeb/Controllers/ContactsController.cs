@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mime;
 using System.Web.Mvc;
 using ContactsBookWeb.Models;
@@ -9,8 +7,7 @@ namespace ContactsBookWeb.Controllers
 {
     public class ContactsController : Controller
     {
-            //
-        // GET: /Contacts/
+        
         [HttpGet]
         public ActionResult EditContact(int? id)
         {
@@ -57,12 +54,20 @@ namespace ContactsBookWeb.Controllers
             return View(contact);
         }
 
+        /// <summary>
+        /// Calls method that saves a contact list on the server in /Content/SavedContacts
+        /// </summary>
+        /// <returns></returns>
         public ActionResult SaveContactsToXml()
         {
             string path = Server.MapPath("/Content/SavedContacts/SavedContacts.xml");
             Book.SaveToXml(path);
             return RedirectToAction("Index", "Home");
         }
+        /// <summary>
+        /// Provides a link to download the contacts list from the server
+        /// </summary>
+        /// <returns></returns>
         public ActionResult DownloadListOfContacts()
         {
             string path = Server.MapPath("/Content/SavedContacts/SavedContacts.xml");

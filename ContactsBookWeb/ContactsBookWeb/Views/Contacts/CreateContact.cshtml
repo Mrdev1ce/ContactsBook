@@ -5,15 +5,6 @@
 
 @using (Html.BeginForm("CreateContact", "Contacts", FormMethod.Post))
 {
-
-    @*<h5>Имя</h5>
-        <input name="firstName" value="@Model.FirstName" id="firstName" type="text" class="form-control">
-        <h5>Фамилия</h5>
-        <input name="secondName" value="@Model.SecondName" id="secondName" type="text" class="form-control">
-        <h5>Год рождения</h5>
-        <input name="birthYear" value="@Model.BirthYear" id="birthYear" type="text" class="form-control">
-        <h5>Телефон</h5>
-        <input name="phoneNumber" value="@Model.PhoneNumber" id="phoneNumber" type="text" class="form-control">*@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })
@@ -21,22 +12,16 @@
         @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control dataInput", @id = "firstName" })
         @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
 
-        @*</div>
-            <div class="form-group">*@
         @Html.LabelFor(model => model.SecondName, htmlAttributes: new { @class = "control-label" })
 
         @Html.TextBoxFor(model => model.SecondName, new { @class = "form-control dataInput", @id = "secondName" })
         @Html.ValidationMessageFor(model => model.SecondName, "", new { @class = "text-danger" })
 
-        @*</div>*@
-        @*<div class="form-group">*@
         @Html.LabelFor(model => model.BirthYear, htmlAttributes: new { @class = "control-label" })
 
         @Html.TextBoxFor(model => model.BirthYear, new { @class = "form-control dataInput", @id = "birthYear" })
         @Html.ValidationMessageFor(model => model.BirthYear, "", new { @class = "text-danger" })
 
-        @*</div>*@
-        @*<div class="form-group">*@
         @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label" })
 
         @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control dataInput", @id = "phoneNumber" })

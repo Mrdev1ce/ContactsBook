@@ -53,9 +53,6 @@
     font-weight: bold;
     color: #f00;
 }
- /*.dataInput {
-     display: block !important;
- }*/
 .form-group label, input
 {
    display: block;

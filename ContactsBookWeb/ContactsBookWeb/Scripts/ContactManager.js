@@ -50,7 +50,7 @@ function SendContactDataToEdit() {
     });
 }
 //Sends model to the server with JSON. 
-//In case of successful editing redirect to the home page
+//In case of successful creation redirect to the home page
 //In case of error return forms to create contact with errors
 function SendContactDataToCreate() {
     $.ajax({
@@ -96,7 +96,7 @@ function DownloadListOfContacts() {
     window.location.href = "/Contacts/DownloadListOfContacts";
 }
 
-
+//Sorts the list of contacts for a given property
 function SortContacts(sortBy) {
     
     var searchResult = GetContactsList();
@@ -104,6 +104,7 @@ function SortContacts(sortBy) {
     RefreshTableBody(searchResult);
    
 }
+//Reads a list of contacts from the HTML-table
 function GetContactsList() {
     var rows = $("tbody tr", $("#contactsTable")).map(function () {
             return [$("td", this).map(function () {
@@ -123,13 +124,13 @@ function GetContactsList() {
     }
     return contactsList;
 }
-
+//Сравнивает контакты по заданному полю
 function Comparer(field) {
     return function(obj1, obj2) {
         return obj1[field].toLowerCase() > obj2[field].toLowerCase();
     }
 }
-
+//Refreshes the HTML-table of contacts
 function RefreshTableBody(data) {
     $("#tableBody").empty();
     for (var i = 0; i < data.length; i++) {
@@ -145,6 +146,7 @@ function RefreshTableBody(data) {
     }
 }
 
+//Searches for a keyword in contact list
 function Search() {
     var searchData = $("#inpSearch").val().trim().toLowerCase();
     if (searchData === "") {

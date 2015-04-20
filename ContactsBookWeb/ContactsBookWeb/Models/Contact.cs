@@ -61,7 +61,7 @@ namespace ContactsBookWeb.Models
             get { return _birthYear; }
             set
             {
-                if (value > DateTime.Now.Year - 130 && value < DateTime.Now.Year)
+                if (value > DateTime.Now.Year - 130 && value <= DateTime.Now.Year)
                 {
                     _birthYear = value;
                 }
@@ -69,7 +69,7 @@ namespace ContactsBookWeb.Models
         }
         [Required(ErrorMessage = "The field must be set")]
         [StringLength(30, MinimumLength = 6, ErrorMessage = "The string length must be between 6 and 30 characters")]
-        [RegularExpression(@"[+][0-9]" , ErrorMessage = "Incorrect telephone number")]
+        [RegularExpression(@"[0-9]+" , ErrorMessage = "Incorrect telephone number")]
         [Display(Name = "Phone number")]
         public string PhoneNumber
         {
