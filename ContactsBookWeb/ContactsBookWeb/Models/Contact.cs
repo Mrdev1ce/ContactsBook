@@ -61,7 +61,7 @@ namespace ContactsBookWeb.Models
             get { return _birthYear; }
             set
             {
-                if (value > DateTime.Now.Year - 130 && value <= DateTime.Now.Year)
+                if (value > DateTime.Now.Year - 131 && value <= DateTime.Now.Year)
                 {
                     _birthYear = value;
                 }

@@ -25,6 +25,8 @@ namespace ContactsBookWeb.Controllers
             if (ModelState.IsValid)
             {
                 Book.EditContact(contact);
+                string path = Server.MapPath("/Content/SavedContacts/SavedContacts.xml");
+                Book.SaveToXml(path);
                 return Json(new {success = true});
             }
             return View(contact);
@@ -34,6 +36,8 @@ namespace ContactsBookWeb.Controllers
         {
             if (id == null || id < 0) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             Book.RemoveContact((int)id);
+            string path = Server.MapPath("/Content/SavedContacts/SavedContacts.xml");
+            Book.SaveToXml(path);
             return RedirectToAction("Index", "Home");
         }
 
@@ -49,6 +53,8 @@ namespace ContactsBookWeb.Controllers
             if (ModelState.IsValid)
             {
                 Book.AddContact(contact);
+                string path = Server.MapPath("/Content/SavedContacts/SavedContacts.xml");
+                Book.SaveToXml(path);
                 return Json(new { success = true });
             }
             return View(contact);
