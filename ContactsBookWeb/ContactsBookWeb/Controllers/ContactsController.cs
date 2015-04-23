@@ -25,8 +25,7 @@ namespace ContactsBookWeb.Controllers
             if (ModelState.IsValid)
             {
                 Book.EditContact(contact);
-                string path = Server.MapPath("/Content/SavedContacts/SavedContacts.xml");
-                Book.SaveToXml(path);
+                SaveChanges();
                 return Json(new {success = true});
             }
             return View(contact);
@@ -36,8 +35,7 @@ namespace ContactsBookWeb.Controllers
         {
             if (id == null || id < 0) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             Book.RemoveContact((int)id);
-            string path = Server.MapPath("/Content/SavedContacts/SavedContacts.xml");
-            Book.SaveToXml(path);
+            SaveChanges();
             return RedirectToAction("Index", "Home");
         }
 
@@ -53,8 +51,7 @@ namespace ContactsBookWeb.Controllers
             if (ModelState.IsValid)
             {
                 Book.AddContact(contact);
-                string path = Server.MapPath("/Content/SavedContacts/SavedContacts.xml");
-                Book.SaveToXml(path);
+                SaveChanges();
                 return Json(new { success = true });
             }
             return View(contact);
@@ -66,8 +63,7 @@ namespace ContactsBookWeb.Controllers
         /// <returns></returns>
         public ActionResult SaveContactsToXml()
         {
-            string path = Server.MapPath("/Content/SavedContacts/SavedContacts.xml");
-            Book.SaveToXml(path);
+            SaveChanges();
             return RedirectToAction("Index", "Home");
         }
         /// <summary>
@@ -80,6 +76,12 @@ namespace ContactsBookWeb.Controllers
             if (!System.IO.File.Exists(path)) return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             byte[] fileBytes = System.IO.File.ReadAllBytes(path);
             return File(fileBytes, MediaTypeNames.Application.Octet, "SavedContacts.xml");
+        }
+
+        private void SaveChanges()
+        {
+            string path = Server.MapPath("/Content/SavedContacts/SavedContacts.xml");
+            Book.SaveToXml(path);
         }
 	}
 }
